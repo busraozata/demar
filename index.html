@@ -15,6 +15,68 @@
 </head>
 
 <body>
+
+    <header>
+        <div class="container-fluid">
+            <div class="header-inner">
+                <div class="header-top d-flex justify-content-between align-items-center">
+                    <div class="img-wrapper">
+                        <img src="./img/logo.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="header-right d-flex align-items-center">
+                        <div class="search-button">
+                            <a href="">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <div class="language">
+                            <div class="dropdown lang-area d-xl-block d-none">
+                                <button class="btn d-flex align-items-center dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-globe"></i> <span>TR</span>
+                                </button>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a href="/"><span>TR</span></a></li>
+                                    <li><a href=""><span>EN</span></a></li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-bottom">
+                    <ul class="navbar-area">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Para Gönder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Biz Kimiz</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hizmetlerimiz
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ücretler</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
     <section class="banner">
         <div class="swiper mySwiperBanner">
             <div class="swiper-wrapper">
@@ -38,23 +100,25 @@
                         <div class="col-lg-6">
 
                             <div class="img-wrapper h-100">
-                                <div class="sec h-100">
-                                    <img src="./img/banner.jpg" class="img-fluid" alt="">
-                                    <h2>
+                                <div class="sec h-100" style="background:url(./img/banner.jpg) no-repeat; background-size: cover; background-position: center;">
 
-                                        <div class="shape">
+                                    <div class="shape-area">
 
+                                        <div class="shapes">
+                                            <div class="shape">
+
+                                            </div>
+                                            <div class="shape2">
+
+                                            </div>
+                                            <div class="shape3">
+
+                                            </div>
+                                            <div class="shape4">
+
+                                            </div>
                                         </div>
-                                        <div class="shape2">
-
-                                        </div>
-                                        <div class="shape3">
-
-                                        </div>
-                                        <div class="shape4">
-
-                                        </div>
-                                    </h2>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +134,7 @@
                 <h3>Sevdiklerinize en kolay ve hızlı para gönderme yolu Demar</h3>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                     <div class="box">
                         <div class="icon">
                             <img src="./img/smartphone.png" class="img-fluid" alt="">
@@ -83,7 +147,7 @@
                         <a href="" class="btn align-items-center justify-content-center"><span>BİLGİ ALIN </span><img src="./img/arrow.png" class="img-fluid" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-top" data-aos-offset="300" data-aos-easing="ease-in-sine">
                     <div class="box">
                         <div class="icon">
                             <img src="./img/mac.png" class="img-fluid" alt="">
@@ -100,7 +164,7 @@
                         <a href="" class="btn align-items-center justify-content-center"><span>BİLGİ ALIN </span><img src="./img/arrow.png" class="img-fluid" alt=""></a>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
                     <div class="box">
                         <div class="icon">
                             <img src="./img/partnership.png" class="img-fluid" alt="">
@@ -121,14 +185,89 @@
         </div>
     </section>
 
+    <section class="we-demar">
+        <div class="container-fluid">
+            <div class="title text-center">
+                <span>SİZİNLE BERABER BAŞARDIK</span>
+                <h3>BAŞARIMIZLA GURURLUYUZ</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="box d-flex flex-column justify-content-between h-100">
+                        <div id="counter-box" class="d-flex align-items-center justify-content-between">
+                            <h4>
+                                <span class="counter" data-number="179"></span>
+                                <span>+</span>
+                            </h4>
+                            <p>
+                                farklı ülkeye
+                                gönderim yapıyoruz.
+                            </p>
+                        </div>
+                        <div id="counter-box" class="d-flex align-items-center justify-content-between">
+                            <h4>
+                                <span class="counter" data-number="35"></span>
+                                <span>+</span>
+                            </h4>
+                            <p>
+                                farklı para birimini
+                                destekliyoruz.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4" data-aos="fade-top">
+                    <img src="./img/map.png" class="img-fluid" alt="">
+                </div>
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="box d-flex flex-column justify-content-between h-100">
+                        <div id="counter-box" class="d-flex align-items-center justify-content-between">
+                            <h4 class="d-flex flex-column align-items-start">
+                                <div class="d-flex align-items-center">
+                                    <span class="counter" data-number="2"></span>
+                                    <span>+</span>
+                                </div>
+                                <span class="text">
+                                    Milyon
+                                </span>
+                            </h4>
+                            <p>
+                                Dünyanın her
+                                yerinde müşterimiz
+                                var.
+                            </p>
+                        </div>
+                        <div id="counter-box" class="d-flex align-items-center justify-content-between">
+                            <h4 class="d-flex flex-column align-items-start">
+                                <div class="d-flex align-items-center">
+                                    <span class="counter" data-number="1"></span>
+                                    <span>+</span>
+                                </div>
+                                <span class="text">
+                                    Milyar
+                                </span>
+                            </h4>
+                            <p>
+                                Ödeme Demar
+                                üzerinden sağlandı.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="demar-bank">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" data-aos="fade-left">
                 <div class="col-lg-4">
-                    <h5>
-                        Geleneksel bankalardan
-                        daha ucuz ve kolay.
-                    </h5>
+                    <a href="">
+                        <h5>
+                            Geleneksel bankalardan
+                            daha ucuz ve kolay.
+                        </h5>
+                    </a>
                     <p>
                         Banka randevularıyla uğraşmayın ve
                         her yere direkt para göndermeye başlayın.
@@ -139,7 +278,9 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="img-wrapper">
-                        <img src="./img/demar1.jpg" class="img-fluid w-100" alt="">
+                        <a href="">
+                            <img src="./img/demar1.jpg" class="img-fluid w-100" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -147,18 +288,22 @@
     </section>
     <section class="demar-bank-sub">
         <div class="container-fluid">
-            <div class="row align-items-end">
+            <div class="row align-items-end" data-aos="fade-right">
                 <div class="col-lg-8">
                     <div class="img-wrapper">
-                        <img src="./img/demar2.jpg" class="img-fluid w-100" alt="">
+                        <a href="">
+                            <img src="./img/demar2.jpg" class="img-fluid w-100" alt="">
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="content">
-                        <h5>
-                            Gizli ücretler olmadan
-                            tek fiyatla gönder.
-                        </h5>
+                        <a href="">
+                            <h5>
+                                Gizli ücretler olmadan
+                                tek fiyatla gönder.
+                            </h5>
+                        </a>
                         <p>
                             Gizli veya ekstra hiçbir ücret olmadan
                             gerçek döviz kuruyla sevdiklerinize
@@ -172,6 +317,57 @@
             </div>
         </div>
     </section>
+
+    <footer>
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-lg-4">
+                    <div class="img-wrapper">
+                        <img src="./img/logo.png" class="img-fluid" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div>
+                                <h4>Para Gönder</h4>
+                                <ul>
+                                    <li><a href="">Yurtiçi Gönderim</a></li>
+                                    <li><a href="">Yurtdışı Gönderim</a></li>
+                                    <li><a href="">Gönderim Ücretleri</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div>
+                                <h4>Kurumsal</h4>
+                                <ul>
+                                    <li><a href="">Yetkilendirme</a></li>
+                                    <li><a href="">Sıkça Sorulanlar</a></li>
+                                    <li><a href="">Yasal Bilgiler</a></li>
+                                    <li><a href="">İletişim</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6>
+                                Biz Kimiz
+                            </h6>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                            <ul class="social-media d-flex">
+                                <li><a href=""><i class="fa-brands fa-twitter"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
