@@ -22,14 +22,46 @@
                     <div class="img-wrapper">
                         <img src="./img/logo.png" class="img-fluid" alt="">
                     </div>
-                    <div class="header-right d-flex align-items-center">
+                    <div class="menu-bar d-xl-none d-block" id="toggle-btn">
+                        <i class="fa-solid fa-bars"></i>
+
+                    </div>
+                    <div class="header-bottom top-menu">
+                        <ul class="navbar-area">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Para Gönder</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Biz Kimiz</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hizmetlerimiz
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" href="#">Para Transferi</a></li>
+                                    <li><a class="dropdown-item" href="#">Para Çekimi</a></li>
+
+                                    <li><a class="dropdown-item" href="#">Ücret Hesaplama</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Ücretler</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">İletişim</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-right d-flex align-items-center d-xl-flex d-none">
                         <div class="search-button">
-                            <a href="">
+                            <a href="#search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </a>
                         </div>
+
                         <div class="language">
-                            <div class="dropdown lang-area d-xl-block d-none">
+                            <div class="dropdown lang-area ">
                                 <button class="btn d-flex align-items-center dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-globe"></i> <span>TR</span>
                                 </button>
@@ -44,7 +76,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="header-bottom">
+                <div class="header-bottom mobile-bottom">
+                    <div class="img-wrapper d-xl-none d-block">
+                        <img src="./img/logo.png" class="img-fluid" alt="">
+                    </div>
                     <ul class="navbar-area">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Para Gönder</a>
@@ -57,12 +92,10 @@
                                 Hizmetlerimiz
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Para Transferi</a></li>
+                                <li><a class="dropdown-item" href="#">Para Çekimi</a></li>
+
+                                <li><a class="dropdown-item" href="#">Ücret Hesaplama</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -72,21 +105,60 @@
                             <a class="nav-link" href="#">İletişim</a>
                         </li>
                     </ul>
+                    <div class="header-right d-flex align-items-start d-xl-none d-block">
+                        <div class="search-button">
+                            <a href="#search">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+
+                        <div class="language">
+                            <div class="dropdown lang-area ">
+                                <button class="btn d-flex align-items-center dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-globe"></i> <span>TR</span>
+                                </button>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a href="/"><span>TR</span></a></li>
+                                    <li><a href=""><span>EN</span></a></li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
+    <div id="search-box">
+        <div class="container">
+            <a class="close" href="#close"></a>
+            <div class="search-main">
+                <div class="search-inner">
+                    <input type="text" id="inputSearch" name="firstname" placeholder="">
+                    <span class="search-info">Aramak için enter'a veya kapatmak için ESC'ye basın
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 
+ 
     <section class="sub-banner">
         <div class="container-fluid">
+            <div class="img-wrapper shape-banner">
+                <img src="./img/test.jpg" class="img-fluid" alt="">
+            </div>
             <div class="row">
                 <div class="col-lg-6">
-
+                    <ul>
+                        <li><a href="" class="d-flex align-items-center">Biz Kimiz <img src="./img/arrow-right.png" class="img-fluid" alt=""></a></li>
+                        <li><a href="">Hakkımızda</a></li>
+                    </ul>
                 </div>
                 <div class="col-lg-6 position-relative">
-                    <div class="img-wrapper shape-banner">
-                        <img src="./img/test.jpg" class="img-fluid" alt="">
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -94,7 +166,7 @@
 
     <section class="about-page">
         <div class="container-fluid">
-            <div class="page-title">
+            <div class="page-title" data-aos="fade-right">
                 <h4>Yurtdışına dakikalar içinde
                     para göndermek ve almak çok kolay.
                 </h4>
@@ -147,10 +219,10 @@
         <div class="container-fluid">
             <div class="item" data-aos="fade-right">
                 <div class="row align-items-center">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6">
                         <h4>ORTAKLIK YAPISI</h4>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="text">
                             <p>
                                 İstanbul Ödeme ve Elektronik Para A.Ş.’nin sermayesi 32.000.000 TL.
@@ -163,10 +235,10 @@
             </div>
             <div class="item" data-aos="fade-left">
                 <div class="row align-items-center">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6">
                         <h4>YETKİLENDİRME</h4>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="text">
                             <p>
                                 İstanbul Ödeme ve Elektronik Para A.Ş. BDDK’nın 02/08/2018 tarihli 7901 nolu kararının
@@ -183,19 +255,19 @@
     <section class="referance" data-aos="fade-top">
         <div class="container">
             <div class="row align-items-center justify-content-center">
-                <div class="col-lg-3 d-flex align-items-center">
+                <div class="col-lg-3 col-md-3 col-6 d-flex align-items-center">
                     <img src="./img/korona.png" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-2 d-flex align-items-center">
+                <div class="col-lg-2 col-md-2 col-4 d-flex align-items-center">
                     <img src="./img/ria.png" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-2 d-flex align-items-center">
+                <div class="col-lg-2 col-md-2 col-4 d-flex align-items-center">
                     <img src="./img/daha.png" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-1 d-flex align-items-center">
+                <div class="col-lg-1 col-md-1 col-3 d-flex align-items-center">
                     <img src="./img/tib.png" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-2 d-flex align-items-center">
+                <div class="col-lg-2 col-md-2 col-3 d-flex align-items-center">
                     <img src="./img/welsend.png" class="img-fluid" alt="">
                 </div>
             </div>

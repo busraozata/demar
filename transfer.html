@@ -22,14 +22,46 @@
                     <div class="img-wrapper">
                         <img src="./img/logo.png" class="img-fluid" alt="">
                     </div>
-                    <div class="header-right d-flex align-items-center">
+                    <div class="menu-bar d-xl-none d-block" id="toggle-btn">
+                        <i class="fa-solid fa-bars"></i>
+
+                    </div>
+                    <div class="header-bottom top-menu">
+                        <ul class="navbar-area">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Para Gönder</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Biz Kimiz</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hizmetlerimiz
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a class="dropdown-item" href="#">Para Transferi</a></li>
+                                    <li><a class="dropdown-item" href="#">Para Çekimi</a></li>
+
+                                    <li><a class="dropdown-item" href="#">Ücret Hesaplama</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Ücretler</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">İletişim</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-right d-flex align-items-center d-xl-flex d-none">
                         <div class="search-button">
-                            <a href="">
+                            <a href="#search">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </a>
                         </div>
+
                         <div class="language">
-                            <div class="dropdown lang-area d-xl-block d-none">
+                            <div class="dropdown lang-area ">
                                 <button class="btn d-flex align-items-center dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-globe"></i> <span>TR</span>
                                 </button>
@@ -44,7 +76,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="header-bottom">
+                <div class="header-bottom mobile-bottom">
+                    <div class="img-wrapper d-xl-none d-block">
+                        <img src="./img/logo.png" class="img-fluid" alt="">
+                    </div>
                     <ul class="navbar-area">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Para Gönder</a>
@@ -57,12 +92,10 @@
                                 Hizmetlerimiz
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                <li><a class="dropdown-item" href="#">Para Transferi</a></li>
+                                <li><a class="dropdown-item" href="#">Para Çekimi</a></li>
+
+                                <li><a class="dropdown-item" href="#">Ücret Hesaplama</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -72,18 +105,64 @@
                             <a class="nav-link" href="#">İletişim</a>
                         </li>
                     </ul>
+                    <div class="header-right d-flex align-items-start d-xl-none d-block">
+                        <div class="search-button">
+                            <a href="">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+
+                        <div class="language">
+                            <div class="dropdown lang-area ">
+                                <button class="btn d-flex align-items-center dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-globe"></i> <span>TR</span>
+                                </button>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li><a href="/"><span>TR</span></a></li>
+                                    <li><a href=""><span>EN</span></a></li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
-
+    <div id="search-box">
+        <div class="container">
+            <a class="close" href="#close"></a>
+            <div class="search-main">
+                <div class="search-inner">
+                    <input type="text" id="inputSearch" name="firstname" placeholder="">
+                    <span class="search-info">Aramak için enter'a veya kapatmak için ESC'ye basın
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="sub-banner">
         <div class="container-fluid">
+            <div class="img-wrapper shape-banner">
+                <img src="./img/sub-banner.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <ul>
+                        <li><a href="" class="d-flex align-items-center">Para Gönder <img src="./img/arrow-right.png" class="img-fluid" alt=""></a></li>
+                        <li><a href="">Gönderimi Planla</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 position-relative">
 
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="demar">
+    <section class="transfer-page">
         <div class="container-fluid">
             <div class="page-title">
                 <h4>GÜVENLE GÖNDERİN</h4>
@@ -91,58 +170,65 @@
             </div>
         </div>
         <div class="container">
-            <div class="title text-center">
+            <div class="title text-center" data-aos="fade-bottom">
                 <span>ZAMANINIZ SİZE KALSIN</span>
                 <h3>Sevdiklerinize en kolay ve hızlı para gönderme yolu Demar</h3>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                    <div class="box">
-                        <div class="icon">
-                            <img src="./img/smartphone.png" class="img-fluid" alt="">
+            <div class="row justify-content-center" data-aos="fade-bottom">
+                <div class="swiper mySwiperTransfer">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="icon">
+                                    <img src="./img/smartphone.png" class="img-fluid" alt="">
+                                </div>
+                                <h4>
+                                    İban Hesabına
+                                    Gönderme
+                                </h4>
+                                <span>İban hesabına kredi kartı ile gönderin</span>
+                                <a href="" class="btn align-items-center justify-content-center"><span>BİLGİ ALIN </span><img src="./img/arrow.png" class="img-fluid" alt=""></a>
+                            </div>
                         </div>
-                        <h4>
-                            İban Hesabına
-                            Gönderme
-                        </h4>
-                        <span>İban hesabına kredi kartı ile gönderin</span>
-                        <a href="" class="btn align-items-center justify-content-center"><span>BİLGİ ALIN </span><img src="./img/arrow.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-top" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                    <div class="box">
-                        <div class="icon">
-                            <img src="./img/mac.png" class="img-fluid" alt="">
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="icon">
+                                    <img src="./img/mac.png" class="img-fluid" alt="">
+                                </div>
+
+                                <h4>
+                                    Siteden Online
+                                    Gönderme
+                                </h4>
+
+                                <span>
+                                    İban hesabına kredi kartı ile gönderin
+                                </span>
+                                <a href="" class="btn align-items-center justify-content-center"><span>BİLGİ ALIN </span><img src="./img/arrow.png" class="img-fluid" alt=""></a>
+                            </div>
+
                         </div>
+                        <div class="swiper-slide">
+                            <div class="box">
+                                <div class="icon">
+                                    <img src="./img/partnership.png" class="img-fluid" alt="">
+                                </div>
 
-                        <h4>
-                            Siteden Online
-                            Gönderme
-                        </h4>
+                                <h4>
+                                    İş Ortaklığı
+                                </h4>
 
-                        <span>
-                            İban hesabına kredi kartı ile gönderin
-                        </span>
-                        <a href="" class="btn align-items-center justify-content-center"><span>BİLGİ ALIN </span><img src="./img/arrow.png" class="img-fluid" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-4" data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine">
-                    <div class="box">
-                        <div class="icon">
-                            <img src="./img/partnership.png" class="img-fluid" alt="">
+                                <span>
+                                    Dünyanın en büyük para transfer şirketlerinden
+                                    biri olan İspay ile birlikte çalışıyoruz.
+                                </span>
+                                <a href="" class="btn align-items-center justify-content-center"><span>BİLGİ ALIN </span><img src="./img/arrow.png" class="img-fluid" alt=""></a>
+                            </div>
                         </div>
-
-                        <h4>
-                            İş Ortaklığı
-                        </h4>
-
-                        <span>
-                            Dünyanın en büyük para transfer şirketlerinden
-                            biri olan İspay ile birlikte çalışıyoruz.
-                        </span>
-                        <a href="" class="btn align-items-center justify-content-center"><span>BİLGİ ALIN </span><img src="./img/arrow.png" class="img-fluid" alt=""></a>
                     </div>
+
                 </div>
+               
 
             </div>
         </div>

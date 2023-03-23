@@ -81,17 +81,105 @@ button {
   --color-purple: #7b52ab;
   --color-gray2: #efefef;
 }
+
+//responsive breakpoints
+$sm-breakpoint: 600px; //Small
+$md-breakpoint: 768px; //Medium
+$lg-breakpoint: 991px; //Large
+$xl-breakpoint: 1200px; //Extra large
+$xxl-breakpoint: 1400px; //Extra extra large
 header {
   position: absolute;
   z-index: 99;
   padding: 3rem 8rem;
   width: 100%;
+  @media screen and (max-width: 1500px) {
+    padding: 3rem 3rem;
+  }
+  @media screen and (max-width: $xl-breakpoint) {
+    padding: 3rem 2rem;
+  }
+  @media screen and (max-width: $sm-breakpoint) {
+    padding: 2rem 1rem;
+  }
   .img-wrapper {
     img {
       max-width: 20rem;
+      @media screen and (max-width: 1550px) {
+        max-width: 16rem;
+      }
+      @media screen and (max-width: $xl-breakpoint) {
+        max-width: 13rem;
+      }
+      @media screen and (max-width: $lg-breakpoint) {
+        max-width: 10rem;
+      }
     }
   }
+  .menu-bar {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 9999;
+  }
   .header-inner {
+    &.sticky {
+      -webkit-box-shadow: -1px 4px 17px -7px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: -1px 4px 17px -7px rgba(0, 0, 0, 0.75);
+      box-shadow: -1px 4px 17px -7px rgba(0, 0, 0, 0.75);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fffffffa;
+      z-index: 999999;
+      transition: 1s all;
+      padding: 0rem 5rem;
+      @media screen and (max-width: $xl-breakpoint) {
+        padding: 1rem 3rem;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        padding: 1rem 1.5rem;
+      }
+      .header-bottom {
+        @media screen and (min-width: 1440px) {
+          display: none;
+        }
+      }
+      .top-menu {
+        display: block;
+        @media screen and (max-width: $xl-breakpoint) {
+          display: none;
+        }
+      }
+      .dropdown-menu {
+        @media screen and (min-width: 1440px) {
+          margin-top: 2rem !important;
+          background-color: #fff !important;
+          overflow: hidden;
+          a {
+            color: var(--color-gray) !important;
+            &:hover {
+              color: var(--color-purple) !important;
+            }
+          }
+        }
+      }
+      .img-wrapper {
+        img {
+          @media screen and (min-width: 1440px) {
+            max-width: 13rem;
+          }
+          @media screen and (max-width: $lg-breakpoint) {
+            max-width: 10rem;
+          }
+        }
+      }
+    }
+    .top-menu {
+      display: none;
+    }
     .header-top {
       a {
         i {
@@ -103,7 +191,10 @@ header {
       }
       .header-right {
         .search-button {
-          margin-right: 4rem;
+          margin-right: 2rem;
+          @media screen and(max-width:$lg-breakpoint) {
+            margin-right: 0rem;
+          }
           i {
             font-size: 1.5rem;
           }
@@ -132,6 +223,7 @@ header {
           .dropdown-menu {
             min-width: 4rem;
             border: 1px solid var(--color-purple);
+            background-color: transparent;
             li {
               text-align: center !important;
               transition: 0.3s all;
@@ -150,16 +242,135 @@ header {
         }
       }
     }
+    .header-right {
+      .search-button {
+        margin-right: 2rem;
+        @media screen and(max-width:$lg-breakpoint) {
+          margin-right: 0rem;
+        }
+        i {
+          font-size: 1.5rem;
+          color: var(--color-purple);
+        }
+      }
+      .language {
+        button {
+          border: none;
+          &:after {
+            display: none;
+          }
+          &:focus {
+            outline: none;
+            box-shadow: none;
+          }
+          i {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            color: var(--color-purple);
+          }
+          span {
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--color-purple);
+            font-weight: bold;
+          }
+          @media screen and (max-width: $xl-breakpoint) {
+            padding-left: 0rem;
+            margin-top: 1rem;
+          }
+        }
+        .dropdown-menu {
+          min-width: 4rem;
+          border: 1px solid var(--color-purple);
+          background-color: transparent;
+          li {
+            text-align: center !important;
+            transition: 0.3s all;
+            &:hover {
+              background-color: var(--color-purple);
+              a {
+                color: var(--color-white) !important;
+              }
+            }
+            a {
+              color: var(--color-purple);
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+    .dropdown {
+      outline: none;
+      border: none;
+    }
     .header-bottom {
+      @media screen and (max-width: $xl-breakpoint) {
+        &.active {
+          left: 0;
+          width: 100%;
+        }
+        position: fixed;
+        height: 100vh;
+        width: 0%;
+        background: url(../img/banner.jpg) no-repeat;
+        background-size: cover;
+        background-position: center;
+        left: -100%;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        padding-left: 2rem;
+        padding-top: 2rem;
+        z-index: 9;
+
+        transition: 0.3s all;
+        .header-right {
+          margin-top: 2rem;
+        }
+        &:before {
+          content: "";
+          background-color: #ffffffda;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          position: absolute;
+          z-index: -1;
+        }
+      }
+      .lang-area {
+        .btn {
+          padding-top: 0rem;
+          margin-top: 0rem;
+          margin-left: 1rem;
+        }
+      }
       .navbar-area {
         display: flex !important;
+        @media screen and (max-width: $xl-breakpoint) {
+          flex-direction: column;
+          margin-top: 2rem;
+        }
         .nav-item {
           padding: 3rem 0rem 2rem 0rem;
+          @media screen and (max-width: $xl-breakpoint) {
+            padding: 0rem 0rem 0rem 0rem;
+          }
           a {
             color: var(--color-gray);
-            font-weight: 300;
+            font-weight: 600;
             font-size: 1.3rem;
             transition: 0.3s all;
+            @media screen and (max-width: $xl-breakpoint) {
+              padding-left: 0rem;
+            }
+            &:focus {
+              outline: none;
+              box-shadow: none;
+            }
 
             &:hover {
               background: linear-gradient(to right, #a36cf0 0%, #b84dd4 100%);
@@ -171,33 +382,185 @@ header {
         }
       }
       ul {
+        &.dropdown-menu {
+          background-color: transparent;
+          z-index: 99;
+          border: none;
+          padding-left: 1rem;
+          @media screen and (max-width: $xl-breakpoint) {
+            position: relative !important;
+            inset: inherit !important;
+            margin: inherit !important;
+            transform: inherit !important;
+            padding-left: 0rem !important;
+          }
+
+          li {
+            a {
+              font-weight: 300;
+              color: var(--color-gray);
+              position: relative;
+              z-index: 9;
+              &:before {
+                content: "";
+                background: linear-gradient(to right, #a36cf0 0%, #b84dd4 100%);
+                width: 100%;
+                height: 3px;
+                position: absolute;
+                bottom: 0;
+                transition: 0.3s all;
+                width: 0;
+              }
+              &:hover {
+                color: var(--color-gray) !important;
+                background: none !important;
+                font-style: italic;
+                -webkit-text-fill-color: inherit !important;
+                &::before {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
         padding-left: 0rem;
       }
     }
+  }
+}
+#search-box {
+  visibility: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  //background: rgba(0, 0, 0, .8);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999999;
+
+  .container {
+    display: table;
+    width: 100%;
+    height: 100%;
+    .close {
+      position: absolute;
+      right: 32px;
+      top: 32px;
+      width: 32px;
+      height: 32px;
+      opacity: 0.3;
+    }
+    .close:hover {
+      opacity: 1;
+    }
+    .close:before,
+    .close:after {
+      position: absolute;
+      left: 15px;
+      content: " ";
+      height: 33px;
+      width: 2px;
+      background-color: white;
+    }
+    .close:before {
+      transform: rotate(45deg);
+    }
+    .close:after {
+      transform: rotate(-45deg);
+    }
+    .search-main {
+      display: table-cell;
+      vertical-align: middle;
+      .search-inner {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      form {
+        position: relative;
+      }
+      input {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 12px 74px 12px 0;
+        font-size: 32px;
+        height: 65px;
+        border-bottom: 2px solid white;
+        display: block;
+        color: white;
+        margin-bottom: 0;
+        width: 100%;
+        transform: scale3d(0, 1, 1);
+        transform-origin: 0% 50%;
+        transition: transform 3s;
+        &:focus {
+          outline: none;
+        }
+      }
+
+      button {
+        border: 0;
+        left: auto;
+        outline: none;
+        padding: 0;
+        position: absolute;
+        right: 0;
+        top: 0.3em;
+        bottom: 0.3em;
+        background: transparent;
+        font-size: 43px;
+      }
+      .search-info {
+        display: block;
+        color: white;
+        text-align: right;
+        float: right;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  &.-open {
+    background: rgba(0, 0, 0, 0.8);
+    visibility: visible;
+    animation: fadein 0.8s;
+    .container {
+      .search-main {
+        input {
+          transform: scale3d(1, 1, 1);
+          transition-duration: 1s;
+          //transition-delay: 2s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 .banner {
   min-height: 100vh;
   width: 100%;
   background-color: var(--color-white);
-  position: relative;
   overflow: hidden;
-  z-index: 9;
-  &::before {
-    content: "";
-    background: url(../img/map-banner.png) no-repeat;
-    background-size: contain;
-    background-position: left;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    z-index: -1;
+  @media screen and (max-width: $lg-breakpoint) {
+    min-height: 40vh;
   }
 
   .swiper {
     width: 100%;
     height: 100%;
+
     .swiper-slide {
       font-size: 18px;
       display: flex;
@@ -207,14 +570,112 @@ header {
       padding-top: 4rem;
       padding-right: 8rem;
       position: relative;
+      z-index: 9;
+      @media screen and (max-width: $lg-breakpoint) {
+        min-height: 40vh;
+        padding: 2rem 2rem 5rem 0rem;
+      }
+      @media screen and (min-width: $lg-breakpoint) {
+        background: none !important;
+      }
+      &:before {
+        content: "";
+        background-color: #fff;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        z-index: -1;
+        @media screen and (max-width: $lg-breakpoint) {
+          opacity: 0.7;
+        }
+      }
+
+      position: relative;
+      z-index: 9;
+      &::after {
+        content: "";
+        background: url(../img/map-banner.png) no-repeat;
+        background-size: contain;
+        background-position: left;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        z-index: -1;
+        top: 0;
+        @media screen and(max-width:$xl-breakpoint) {
+          height: 70%;
+        }
+        @media screen and(max-width:$lg-breakpoint) {
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 1700px) {
+        padding-right: 2rem;
+      }
 
       .col-lg-6 {
         min-height: 100vh;
         background-position: -5cm 0cm !important;
-
+        @media screen and (max-width: $lg-breakpoint) {
+          min-height: 40vh;
+        }
         .img-wrapper {
           position: relative;
           z-index: 9;
+          .small-shape3 {
+            position: absolute;
+            width: 1.2rem;
+            height: 1.2rem;
+            top: 17%;
+            left: 17%;
+            z-index: 99;
+            @media screen and (max-width: $xl-breakpoint) {
+              top: 28%;
+              left: 1%;
+            }
+          }
+          .small-triangle {
+            position: absolute;
+            width: 1.2rem;
+            height: 1.2rem;
+            top: 30%;
+            left: 17%;
+            z-index: 99;
+            @media screen and (max-width: $xl-breakpoint) {
+              top: 44%;
+              left: 0%;
+            }
+          }
+          .small-plus {
+            position: absolute;
+            width: 1.2rem;
+            height: 1.2rem;
+            bottom: 25%;
+            left: 27%;
+            z-index: 99;
+          }
+          .small-shape4 {
+            position: absolute;
+            width: 1.2rem;
+            height: 1.2rem;
+            bottom: 57%;
+            right: 3%;
+            z-index: 99;
+          }
+          .small-dots {
+            position: absolute;
+            width: 1.2rem;
+            height: 1.2rem;
+            bottom: 57%;
+            right: 3%;
+            z-index: 99;
+          }
         }
         img {
           /* object-position: right; */
@@ -228,7 +689,9 @@ header {
           justify-content: center;
           align-items: center;
           background: var(--color-white);
-
+          /*   @media screen and (max-width:$xl-breakpoint) {
+            display: none !important;
+          } */
           .shape-area {
             position: absolute;
             width: 100%;
@@ -245,6 +708,19 @@ header {
             font-weight: 800;
             text-transform: uppercase;
             text-align: center;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            @media screen and (max-width: 1700px) {
+              padding-top: 5rem;
+            }
+            @media screen and (max-width: 1500px) {
+              padding-top: 0rem !important;
+            }
+            /*   @media screen and (max-width:$xl-breakpoint) {
+              display: none !important;
+            } */
           }
           .shapes {
             transform: rotate(323deg);
@@ -255,7 +731,7 @@ header {
           }
           .shape {
             background-color: #000;
-            animation: animation 2.5s ease-in-out infinite;
+            animation: animation 3s ease-in-out infinite;
             /*  transform: rotate(323deg); */
             margin-top: -5rem;
             width: 21rem;
@@ -266,10 +742,17 @@ header {
             right: 15rem;
             top: 12.5rem; */
             margin-right: 2rem;
+            @media screen and (max-width: 1500px) {
+              height: 4rem;
+              width: 18rem;
+            }
+            @media screen and (max-width: $xl-breakpoint) {
+              margin-right: -4rem !important;
+            }
           }
           .shape2 {
             background-color: #000;
-            width: 51rem;
+            width: 46rem;
             border-radius: 10rem;
             height: 11rem;
             /* position: absolute;
@@ -279,6 +762,14 @@ header {
             animation: animation2 3.5s ease-in-out infinite;
             margin-bottom: 0rem;
             margin-right: -4rem;
+            @media screen and (max-width: 1500px) {
+              width: 41rem;
+              height: 9rem;
+            }
+            @media screen and (max-width: $xl-breakpoint) {
+              width: 25rem;
+              height: 5rem;
+            }
           }
           .shape3 {
             background-color: #000;
@@ -289,9 +780,13 @@ header {
             top: 28.5rem;
             right: 3rem; */
             /*  transform: rotate(323deg); */
-            animation: animation 2.5s ease-in-out infinite;
+            animation: animation 3s ease-in-out infinite;
             margin-top: 2rem;
             margin-right: 2rem;
+            @media screen and (max-width: 1500px) {
+              height: 4rem;
+              width: 18rem;
+            }
           }
           .shape4 {
             background-color: #000;
@@ -305,12 +800,58 @@ header {
             top: 38rem;
             right: 3rem; */
             /* transform: rotate(323deg); */
+            @media screen and (max-width: 1500px) {
+              height: 4rem;
+              width: 18rem;
+            }
           }
         }
       }
       .content {
         padding-left: 8rem;
         margin-top: 10rem;
+        position: relative;
+        @media screen and (max-width: 1500px) {
+          padding-left: 4rem;
+        }
+        @media screen and (max-width: $xl-breakpoint) {
+          padding-left: 3rem;
+        }
+        @media screen and (max-width: $lg-breakpoint) {
+          margin-top: 10rem;
+        }
+        @media screen and (max-width: $sm-breakpoint) {
+          margin-top: 8rem;
+          padding-left: 1rem;
+        }
+        .small-shape {
+          position: absolute;
+          left: 5rem;
+          top: 23%;
+          @media screen and (max-width: 1500px) {
+            left: 1rem;
+          }
+          @media screen and (max-width: $xl-breakpoint) {
+            left: 1rem;
+            top: 20%;
+          }
+          @media screen and (max-width: $sm-breakpoint) {
+            display: none;
+          }
+        }
+        .text-area {
+          position: relative;
+          .small-shape {
+            position: absolute;
+            right: 0rem;
+            left: inherit;
+            bottom: 3rem;
+            top: inherit;
+            @media screen and (max-width: $sm-breakpoint) {
+              bottom: 1rem;
+            }
+          }
+        }
         h1 {
           color: var(--color-gray);
           font-weight: bold;
@@ -318,12 +859,45 @@ header {
           max-width: 40rem;
           margin-bottom: 2rem;
           line-height: 1;
+          @media screen and (max-width: 1500px) {
+            font-size: 4.5rem;
+            max-width: 29rem;
+          }
+          @media screen and (max-width: $xl-breakpoint) {
+            font-size: 3.5rem;
+            max-width: 22rem;
+          }
+          @media screen and (max-width: $lg-breakpoint) {
+            font-size: 2.5rem;
+            max-width: 15rem;
+          }
+          @media screen and (max-width: $sm-breakpoint) {
+            font-size: 2.3rem;
+            max-width: 13rem;
+          }
         }
         p {
           font-style: italic;
           font-size: 1.2rem;
           color: var(--color-gray);
           max-width: 48rem;
+          @media screen and (max-width: 1500px) {
+            font-size: 1rem;
+            max-width: 32rem;
+          }
+          @media screen and (max-width: $lg-breakpoint) {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          @media screen and (max-width: $sm-breakpoint) {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            max-width: 20rem;
+          }
         }
         .btn {
           background-color: var(--color-purple);
@@ -354,6 +928,16 @@ header {
             object-fit: contain;
             margin-left: 1rem;
             object-position: right !important;
+            @media screen and (max-width: $sm-breakpoint) {
+              max-width: 0.5rem;
+            }
+          }
+          @media screen and (max-width: $lg-breakpoint) {
+            margin-top: 1rem;
+          }
+          @media screen and (max-width: $sm-breakpoint) {
+            width: 9rem;
+            font-size: 0.7rem;
           }
         }
       }
@@ -371,14 +955,34 @@ header {
   min-height: 40rem;
   display: block;
   position: relative;
- 
+  z-index: 9;
+  display: flex;
+  align-items: end;
+  @media screen and (max-width: $lg-breakpoint) {
+    min-height: 24rem;
+  }
+  &::before {
+    content: "";
+    background: url(../img/map-top.png) no-repeat;
+    background-size: contain;
+    background-position: left;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    z-index: -1;
+    @media screen and (max-width: $sm-breakpoint) {
+      background-position: top;
+    }
+  }
+
   .shape-banner {
-   
     img {
       position: absolute;
       right: 0;
+      top: 0;
       height: 100%;
-      width: 100%;
+      width: 50%;
       height: 50rem;
       -webkit-mask-image: url(../img/shape-sub-banner.png);
       mask-image: url(../img/shape-sub-banner.png);
@@ -388,14 +992,86 @@ header {
       mask-repeat: no-repeat;
       -webkit-mask-size: contain;
       mask-size: contain;
-  
+      @media screen and (max-width: $lg-breakpoint) {
+        width: 60%;
+        height: 50rem;
+        object-fit: cover;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        width: 80%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  ul {
+    padding-left: 9rem;
+    display: flex;
+    align-items: center;
+    padding-bottom: 4rem;
+    @media screen and (max-width: 1440px) {
+      padding-left: 4rem;
+    }
+    @media screen and (max-width: $xl-breakpoint) {
+      padding-left: 2rem;
+    }
+    @media screen and (max-width: $sm-breakpoint) {
+      padding-left: 1rem;
+    }
+    li {
+      line-height: 0;
+      &:last-child {
+        a {
+          font-size: 2.5rem;
+          font-weight: bold;
+          background-image: -webkit-linear-gradient(
+            282deg,
+            #a170f4 10%,
+            #a865ea 30%,
+            #b650d8 50%,
+            #b94bd3 100%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          text-fill-color: transparent;
+          -webkit-text-fill-color: transparent;
+          @media screen and (max-width: $lg-breakpoint) {
+            font-size: 2rem;
+          }
+          @media screen and (max-width: $sm-breakpoint) {
+            font-size: 1.5rem;
+          }
+        }
+      }
+      a {
+        font-size: 1.4rem;
+        color: var(--color-gray);
+        font-weight: 300;
+        @media screen and (max-width: $lg-breakpoint) {
+          font-size: 1.2rem;
+        }
+        img {
+          margin: 0rem 0.5rem;
+        }
+      }
     }
   }
 }
 
-.demar {
+.transfer-page {
+  padding-top: 10rem !important;
+}
+.demar,
+.transfer-page {
+  overflow: hidden;
   padding: 8rem 9rem 8rem 9rem;
   position: relative;
+  @media screen and (max-width: 1440px) {
+    padding: 4rem 4rem 8rem 4rem;
+  }
+  @media screen and (max-width: $lg-breakpoint) {
+    padding: 4rem 2rem 0rem 2rem;
+  }
   .page-title {
     margin-bottom: 6rem;
 
@@ -413,6 +1089,9 @@ header {
   }
   .title {
     margin-bottom: 5rem;
+    @media screen and (max-width: $sm-breakpoint) {
+      margin-bottom: 1rem;
+    }
     span {
       color: var(--color-purple);
       font-style: italic;
@@ -421,9 +1100,33 @@ header {
     h3 {
       color: var(--color-gray);
       font-weight: bold;
-      font-size: 2.7rem;
+      font-size: 3rem;
+      @media screen and (max-width: 1440px) {
+        font-size: 2.4rem;
+      }
+      @media screen and (max-width: $xl-breakpoint) {
+        font-size: 1.8rem;
+      }
+      @media screen and (max-width: $lg-breakpoint) {
+        font-size: 1.3rem;
+        margin-top: 1rem;
+      }
     }
   }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    .swiper-slide {
+      text-align: left;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+  }
+
   .box {
     background-color: var(--color-gray2);
     padding: 8rem 2rem 5rem 4rem;
@@ -432,14 +1135,44 @@ header {
     box-shadow: 0px 23px 36px -11px rgba(0, 0, 0, 0.1);
     height: 38rem;
     /*  width: 30rem; */
+    @media screen and (max-width: $xl-breakpoint) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon {
+      @media screen and (max-width: $xl-breakpoint) {
+        text-align: center;
+      }
+    }
     &:hover {
       background-color: var(--color-white);
     }
+    @media screen and (max-width: $xl-breakpoint) {
+      margin-bottom: 3rem;
+    }
+    @media screen and (max-width: $lg-breakpoint) {
+      padding: 5rem 2rem 5rem 3rem;
+      height: 32rem;
+    }
+    /*  @media screen and (max-width: $xl-breakpoint) {
+      height: auto;
+      background-color: transparent;
+      box-shadow: none;
+      padding: 0rem 0rem 0rem 0rem;
+      .btn {
+        display: none;
+      }
+    } */
     .icon {
       img {
         /*  max-width: 10rem; */
         height: 6rem;
         object-fit: cover;
+        @media screen and (max-width: 1440px) {
+          height: 5rem;
+        }
       }
     }
     h4 {
@@ -448,47 +1181,85 @@ header {
       margin-bottom: 4rem;
       font-weight: bold;
       font-size: 2rem;
+      @media screen and (max-width: $xl-breakpoint) {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        font-size: 1.7rem;
+        max-width: 14rem;
+        text-align: center;
+      }
+      /*     @media screen and (max-width: $lg-breakpoint) {
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+        font-size: 1.3rem;
+        max-width: 14rem;
+        text-align: center;
+       
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        font-weight: 300;
+        font-size: 1rem;
+       
+      } */
     }
     span {
       color: var(--color-gray);
       font-size: 1rem;
       display: block;
     }
-    .btn {
-      background-color: var(--color-purple);
+  }
+  .col-lg-12 {
+    text-align: center;
+  }
+  .btn {
+    background-color: var(--color-purple);
+    color: var(--color-white);
+    border-radius: 3rem;
+    padding: 0.4rem 1rem;
+    display: flex;
+    border: 1px solid var(--color-purple);
+    margin-top: 3rem;
+    display: inline-flex;
+    width: 11rem;
+    font-weight: bold;
+    transition: 0.3s all;
+    @media screen and (max-width: $lg-breakpoint) {
+      margin-top: 3rem !important;
+    }
+    span {
+      margin-bottom: 0rem;
       color: var(--color-white);
-      border-radius: 3rem;
-      padding: 0.4rem 1rem;
-      display: flex;
-      border: 1px solid var(--color-purple);
-      margin-top: 3rem;
-      display: inline-flex;
-      width: 11rem;
-      font-weight: bold;
-      transition: 0.3s all;
+    }
+    &:hover {
+      background-color: transparent;
       span {
-        margin-bottom: 0rem;
-        color: var(--color-white);
-      }
-      &:hover {
-        background-color: transparent;
-        span {
-          color: var(--color-purple);
-        }
-        img {
-          filter: invert(8) grayscale(8);
-        }
-      }
-      &:focus {
-        outline: none;
-        box-shadow: none;
+        color: var(--color-purple);
       }
       img {
-        max-width: 0.8rem;
-        transition: 0.3s all;
-        object-fit: contain;
-        margin-left: 1rem;
-        object-position: right !important;
+        filter: invert(8) grayscale(8);
+      }
+    }
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+    img {
+      max-width: 0.8rem;
+      transition: 0.3s all;
+      object-fit: contain;
+      margin-left: 1rem;
+      object-position: right !important;
+    }
+    @media screen and (max-width: $lg-breakpoint) {
+      width: 7rem;
+      padding: 0.6rem 0.8rem;
+      span {
+        font-size: 0.7rem;
+        line-height: 0;
+      }
+      img {
+        max-width: 0.5rem;
+        margin-left: 0.5rem;
       }
     }
   }
@@ -506,50 +1277,131 @@ header {
 .about-page {
   /*  padding: 8rem 9rem 8rem 9rem; */
   padding-bottom: 8rem;
+  padding-top: 10rem;
   overflow: hidden;
   .container-fluid {
     padding: 0;
   }
   position: relative;
+  @media screen and (max-width: $xl-breakpoint) {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  @media screen and (max-width: $sm-breakpoint) {
+    padding-top: 0rem;
+  }
   .page-title {
     margin-bottom: 8rem;
     padding: 0rem 9rem 0rem 9rem;
+    @media screen and (max-width: 1440px) {
+      padding: 0rem 9rem 0rem 4rem;
+    }
+    @media screen and (max-width: $xl-breakpoint) {
+      padding: 0rem 9rem 0rem 3rem;
+      margin-bottom: 3rem;
+    }
+    @media screen and (max-width: $sm-breakpoint) {
+      padding: 0rem 2rem 0rem 1.6rem;
+    }
     h4 {
       color: var(--color-gray);
       font-weight: 600;
       font-size: 2.5rem;
       max-width: 38rem;
       margin-bottom: 1.5rem;
+      @media screen and (max-width: $xl-breakpoint) {
+        font-size: 2rem;
+      }
+      @media screen and (max-width: $lg-breakpoint) {
+        font-size: 1.5rem;
+        max-width: 27rem;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        font-size: 1.3rem;
+        max-width: 27rem;
+      }
     }
     p {
       color: var(--color-purple);
       font-weight: 300;
       font-size: 1.1rem;
       max-width: 50rem;
+      @media screen and (max-width: $xl-breakpoint) {
+        font-size: 1rem;
+      }
+      @media screen and (max-width: $lg-breakpoint) {
+        font-size: 1rem;
+        max-width: 27rem;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        font-size: 0.9rem;
+        max-width: 27rem;
+      }
     }
+  }
+  .our-vission {
+    margin-top: 3rem;
   }
   .our-mission,
   .our-vission {
     padding: 5rem 4rem;
     padding: 8rem 11rem 0rem 11rem;
+    @media screen and (max-width: 1440px) {
+      padding: 2rem 7rem 0rem 7rem;
+    }
+    @media screen and (max-width: $xl-breakpoint) {
+      padding: 2rem 4rem 0rem 4rem;
+    }
+    @media screen and (max-width: $lg-breakpoint) {
+      padding: 2rem 2rem 0rem 2rem;
+    }
+    @media screen and (max-width: $lg-breakpoint) {
+      padding: 0rem 2rem 0rem 2rem;
+    }
     h3 {
       color: var(--color-gray);
       font-weight: bold;
       text-align: center;
       font-size: 3rem;
       margin-bottom: 3rem;
+      @media screen and (max-width: $xl-breakpoint) {
+        font-size: 2.5rem;
+      }
+      @media screen and (max-width: $lg-breakpoint) {
+        font-size: 2rem;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
     }
     p {
       text-align: center;
       font-weight: 300;
       color: var(--color-gray);
       font-size: 1.2rem;
+      @media screen and (max-width: 1440px) {
+        font-size: 1.1rem;
+      }
+      @media screen and (max-width: $xl-breakpoint) {
+        font-size: 1rem;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        font-size: 0.9rem;
+        text-align: left;
+      }
     }
   }
   .bottom-text {
     display: flex;
     justify-content: center;
     margin-top: 6rem;
+    @media screen and (max-width: $lg-breakpoint) {
+      margin-top: 0rem;
+    }
+    @media screen and (max-width: $lg-breakpoint) {
+      padding: 0rem 2rem;
+    }
     p {
       font-weight: bold;
       font-style: italic;
@@ -557,6 +1409,19 @@ header {
       text-align: center;
       font-size: 1.4rem;
       max-width: 80rem;
+      @media screen and (max-width: $xl-breakpoint) {
+        font-size: 1.2rem;
+        max-width: 50rem;
+      }
+      @media screen and (max-width: $lg-breakpoint) {
+        font-size: 1.1rem;
+        max-width: 45rem;
+        margin-top: 4rem;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        margin-top: 2rem;
+        font-size: 1rem;
+      }
     }
   }
   .our-mission {
@@ -572,6 +1437,12 @@ header {
       width: 100%;
       left: 0;
       top: 0;
+      @media screen and (max-width: $lg-breakpoint) {
+        height: 62%;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        height: 34%;
+      }
     }
   }
   .our-vission {
@@ -587,6 +1458,12 @@ header {
       width: 100%;
       right: 0;
       bottom: -5rem;
+      @media screen and (max-width: $lg-breakpoint) {
+        height: 62%;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        height: 34%;
+      }
     }
   }
 }
@@ -594,8 +1471,35 @@ header {
   padding-bottom: 10rem;
   position: relative;
   overflow: hidden;
+  @media screen and (max-width: $xl-breakpoint) {
+    padding-bottom: 0rem;
+  }
+  @media screen and (max-width: $lg-breakpoint) {
+    padding-top: 0rem;
+  }
+  .row {
+    @media screen and (max-width: $lg-breakpoint) {
+      position: relative;
+      &:before {
+        content: "";
+        background: url(../img/map.png) no-repeat;
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0.1;
+      }
+    }
+  }
   .title {
     margin-bottom: 5rem;
+    @media screen and (max-width: $xl-breakpoint) {
+      margin-bottom: 0rem;
+    }
+    @media screen and (max-width: $lg-breakpoint) {
+      margin-bottom: 3rem;
+    }
     span {
       color: var(--color-purple);
       font-style: italic;
@@ -605,17 +1509,31 @@ header {
       color: var(--color-gray);
       font-weight: bold;
       font-size: 2.7rem;
+      @media screen and (max-width: 1440px) {
+        font-size: 2.4rem;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+      }
     }
   }
-  .col-lg-4 {
+  .col-area {
     background-color: var(--color-gray2);
-    height: 30rem;
+    height: 33rem;
     padding: 0;
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     box-shadow: 0px 10px 30px -3px rgba(0, 0, 0, 0.1);
     border-radius: 0rem 3rem 0rem 3rem;
+    @media screen and (max-width: $xl-breakpoint) {
+      background-color: transparent;
+      box-shadow: none;
+    }
+    @media screen and (max-width: $lg-breakpoint) {
+      height: 100%;
+    }
     &:nth-child(2) {
       background: transparent;
       box-shadow: none;
@@ -630,6 +1548,18 @@ header {
       width: 100%;
       padding-bottom: 5rem;
       padding-right: 8rem;
+      @media screen and (max-width: 1440px) {
+        padding-right: 4rem;
+      }
+      @media screen and (max-width: $lg-breakpoint) {
+        padding: 0 4rem;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        padding: 0 3rem;
+      }
+      #counter-box {
+        margin-bottom: 2rem;
+      }
       h4 {
         font-size: 6rem;
         font-weight: bold;
@@ -650,6 +1580,20 @@ header {
         .text {
           font-size: 3rem;
           margin-bottom: 2rem;
+          @media screen and (max-width: $xl-breakpoint) {
+            margin-bottom: 0rem !important;
+            font-size: 2rem;
+          }
+          @media screen and (max-width: $lg-breakpoint) {
+            font-size: 1.5rem;
+          }
+        }
+        @media screen and (max-width: 1440px) {
+          font-size: 4rem;
+        }
+        @media screen and (max-width: $lg-breakpoint) {
+          font-size: 2rem;
+          width: 50%;
         }
       }
       p {
@@ -658,6 +1602,9 @@ header {
         max-width: 15rem;
         margin-bottom: 0rem;
         font-size: 1.3rem;
+        @media screen and (max-width: $lg-breakpoint) {
+          font-size: 1rem;
+        }
       }
     }
   }
@@ -666,6 +1613,12 @@ header {
 .demar-bank-sub {
   padding: 0rem 11rem 0rem 11rem;
   overflow: hidden;
+  @media screen and (max-width: 1700px) {
+    padding: 0rem 6rem 0rem 6rem;
+  }
+  @media screen and (max-width: $xl-breakpoint) {
+    padding: 0rem 2rem 0rem 2rem;
+  }
 
   .img-wrapper {
     transition: 0.3s all;
@@ -695,7 +1648,7 @@ header {
   }
   h5 {
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 2rem;
 
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -709,12 +1662,27 @@ header {
     -webkit-background-clip: text;
     text-fill-color: transparent;
     -webkit-text-fill-color: transparent;
+    @media screen and (max-width: 1440px) {
+      font-size: 2rem;
+    }
+    @media screen and (max-width: $xl-breakpoint) {
+      font-size: 1.5rem;
+    }
+    @media screen and (max-width: $sm-breakpoint) {
+      margin-bottom: 1rem;
+    }
   }
   p {
     color: var(--color-gray);
     font-size: 1rem;
     font-weight: 300;
     max-width: 15rem;
+    @media screen and (max-width: 1440px) {
+      max-width: 20rem;
+    }
+    @media screen and (max-width: $xl-breakpoint) {
+      font-size: 0.9rem;
+    }
   }
 
   .btn {
@@ -730,27 +1698,55 @@ header {
       background-color: var(--color-white);
       color: var(--color-purple);
     }
+    @media screen and (max-width: $lg-breakpoint) {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      padding: 0.3rem 1rem;
+    }
   }
 }
 .demar-bank {
   padding-top: 5rem;
+  @media screen and (max-width: $xl-breakpoint) {
+    padding-top: 0rem;
+  }
+
+  @media screen and (max-width: $lg-breakpoint) {
+    padding-top: 1rem;
+    .row {
+      flex-direction: column-reverse;
+    }
+  }
 }
 .demar-bank-sub {
-  margin-top: -10rem;
+  margin-top: -6rem;
   position: relative;
   padding-bottom: 8rem;
+  overflow: hidden;
+  @media screen and (max-width: 1440px) {
+    margin-top: -6rem;
+  }
+  @media screen and (max-width: $xl-breakpoint) {
+    margin-top: 2rem;
+  }
+  @media screen and (max-width: $sm-breakpoint) {
+    padding-bottom: 2rem;
+  }
   .img-wrapper {
     box-shadow: 0px 10px 30px -3px rgba(0, 0, 0, 0.1);
   }
   .content {
     margin-bottom: 3rem;
     padding-left: 4rem;
+    @media screen and (max-width: $lg-breakpoint) {
+      padding-left: 0rem;
+    }
   }
 }
 
 .service-detail {
   position: relative;
-  padding: 0rem 9rem 0rem 9rem;
+  padding: 10rem 9rem 0rem 9rem;
   .page-title {
     margin-bottom: 4rem;
     h4 {
@@ -794,7 +1790,7 @@ header {
   }
 }
 .contact-page {
-  padding: 3rem 0rem 6rem 9rem;
+  padding: 10rem 0rem 6rem 9rem;
   position: relative;
   overflow: hidden;
   .container-fluid {
@@ -942,6 +1938,12 @@ header {
   padding: 0rem 0rem 4rem 0rem;
   position: relative;
   overflow: hidden;
+  @media screen and (max-width: $xl-breakpoint) {
+    padding: 2rem 0rem 4rem 0rem;
+  }
+  @media screen and (max-width: $sm-breakpoint) {
+    padding: 0rem 0rem 0rem 0rem;
+  }
   .col-lg-6 {
     padding: 0;
   }
@@ -960,6 +1962,19 @@ header {
       padding-right: 4rem;
       border-radius: 0rem 2rem 0rem 0rem;
       box-shadow: 0px 10px 26px 9px rgba(0, 0, 0, 0.1);
+      @media screen and (max-width: $xl-breakpoint) {
+        font-size: 1.5rem;
+      }
+      @media screen and (max-width: $lg-breakpoint) {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-right: 2rem;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        font-size: 1.2rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
     }
     p {
       color: var(--color-gray);
@@ -969,6 +1984,16 @@ header {
       text-align: left;
       padding-left: 4rem;
       margin-bottom: 0rem;
+      @media screen and (max-width: $xl-breakpoint) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        font-size: 0.9rem;
+      }
+    }
+    .text{
+      @media screen and (max-width: $sm-breakpoint) {
+        padding: 2rem 1rem;
+      }
     }
     &:nth-child(2n + 0) .row {
       flex-direction: row-reverse;
@@ -976,16 +2001,25 @@ header {
         text-align: left;
         padding-left: 4rem;
         border-radius: 0rem 0rem 0rem 2rem;
+        @media screen and (max-width: $xl-breakpoint) {
+          padding-left: 2rem;
+        }
       }
       .text {
         text-align: right;
         display: flex;
         justify-content: flex-end;
+       
       }
       p {
         text-align: right;
         padding-right: 4rem;
         max-width: 50rem;
+        @media screen and (max-width: $xl-breakpoint) {
+          padding-left: 2rem;
+          padding-right: 2rem;
+          font-size: 0.9rem;
+        }
       }
     }
   }
@@ -994,6 +2028,13 @@ header {
 .referance {
   padding-top: 4rem;
   padding-bottom: 7rem;
+  @media screen and (max-width: $lg-breakpoint) {
+    padding-top: 0rem;
+    padding-bottom: 2rem;
+  }
+  @media screen and (max-width: $sm-breakpoint) {
+    padding-bottom: 3rem;
+  }
   img {
     /*  height: 6rem;
     object-fit: cover; */
@@ -1009,10 +2050,19 @@ footer {
   position: relative;
   z-index: 9;
   overflow: hidden;
+  @media screen and (max-width: 1700px) {
+    padding: 8rem 4rem 5rem 4rem;
+  }
+  @media screen and (max-width: $xl-breakpoint) {
+    padding: 4rem 2rem 3rem 2rem;
+  }
+  @media screen and (max-width: $sm-breakpoint) {
+    padding: 2rem 2rem 3rem 2rem;
+  }
   &::before {
     content: "";
     background: url(../img/footer-map.png) no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: top;
     position: absolute;
     z-index: -1;
@@ -1023,10 +2073,52 @@ footer {
     right: 0;
     top: 4rem;
   }
+
+  .img-wrapper {
+    @media screen and (max-width: 1440px) {
+      margin-top: 2rem;
+    }
+    .text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1rem;
+      @media screen and (max-width: 1440px) {
+        margin-left: 5rem;
+      }
+      @media screen and (max-width: $xl-breakpoint) {
+        display: none;
+      }
+      span {
+        font-size: 1.6rem;
+        color: var(--color-purple);
+        font-weight: bold;
+        &:nth-child(2) {
+          font-family: "Australia Custom";
+          font-size: 2.3rem;
+          font-weight: 300;
+          margin-top: -1.5rem;
+          margin-right: -3.4rem;
+        }
+      }
+    }
+    img {
+      @media screen and (max-width: $xl-breakpoint) {
+        max-width: 14rem !important;
+      }
+      @media screen and (max-width: $sm-breakpoint) {
+        max-width: 12rem !important;
+      }
+    }
+  }
   h4 {
     color: var(--color-purple);
     font-weight: bold;
     margin-bottom: 2rem;
+    @media screen and (max-width: $xl-breakpoint) {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
   }
   .col-lg-8 {
     padding-top: 3rem;
@@ -1036,6 +2128,10 @@ footer {
     font-family: "Australia Custom";
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    @media screen and (max-width: $xl-breakpoint) {
+      margin-top: 1rem;
+      font-size: 2rem;
+    }
   }
   ul {
     padding-left: 0rem;
@@ -1046,6 +2142,9 @@ footer {
         font-weight: 300;
         font-size: 1.2rem;
         transition: 0.3s all;
+        @media screen and (max-width: $sm-breakpoint) {
+          font-size: 1rem;
+        }
         &:hover {
           color: var(--color-gray);
         }
@@ -1056,6 +2155,9 @@ footer {
     color: var(--color-gray);
     font-size: 1rem;
     font-weight: 300;
+    @media screen and (max-width: $sm-breakpoint) {
+      font-size: 0.9rem;
+    }
   }
   .social-media {
     margin-top: 2rem;
@@ -1100,6 +2202,9 @@ footer {
   }
   50% {
     margin-right: 10rem;
+    @media screen and (max-width: $xl-breakpoint) {
+      margin-right: 2rem !important;
+    }
   }
   100% {
     margin-right: 2rem;
