@@ -420,6 +420,10 @@ header .header-inner .header-bottom .navbar-area {
   }
 }
 
+header .header-inner .header-bottom .navbar-area .dropdown-item {
+  font-size: 1.2rem !important;
+}
+
 header .header-inner .header-bottom .navbar-area .nav-item {
   padding: 3rem 0rem 2rem 0rem;
 }
@@ -467,6 +471,8 @@ header .header-inner .header-bottom ul.dropdown-menu {
   z-index: 99;
   border: none;
   padding-left: 1rem;
+  background-color: #fff !important;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1200px) {
